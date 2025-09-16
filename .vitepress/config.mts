@@ -14,6 +14,7 @@ export default defineConfig({
         text: 'Examples',
         items: [
           { text: 'What is Hibou', link: '/guide/what-is-hibou' },
+          { text: 'Acoustics specifications', link: '/guide/acoustic' },
           { text: 'Markdown Examples', link: '/guide/markdown-examples' },
           { text: 'Credits', link: '/guide/credits' },
         ]
