@@ -56,6 +56,10 @@ Multicast addresses:
 
 #### Configure the Dantes with the following configuration :
 
+::: warning
+Not working properly yet
+:::
+
 Network settings, in Dante Controller: Vue du dispositif > Configuration réseau:
 ```
 Configurer manuellement une adresse IP: checked

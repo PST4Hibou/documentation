@@ -11,12 +11,18 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Getting Started',
         items: [
-          { text: 'What is Hibou', link: '/guide/what-is-hibou' },
-          { text: 'Acoustics specifications', link: '/guide/acoustic' },
-          { text: 'Markdown Examples', link: '/guide/markdown-examples' },
-          { text: 'Credits', link: '/guide/credits' },
+          { text: 'What is Hibou', link: '/guide/getting-started/what-is-hibou' },
+          { text: 'Acoustics specifications', link: '/guide/getting-started/acoustic' },
+          { text: 'Markdown Examples', link: '/guide/getting-started/markdown-examples' },
+          { text: 'Credits', link: '/guide/getting-started/credits' },
+        ]
+      },
+      {
+        text: 'Hibou Software',
+        items: [
+          { text: 'Installation', link: '/guide/software/installation'}
         ]
       }
     ],

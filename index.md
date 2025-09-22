@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: Getting started
-      link: /guide/what-is-hibou
+      link: /guide/getting-started/what-is-hibou
     - theme: alt
       text: Credits
       link: /guide/credits
