@@ -6,7 +6,7 @@ export default defineConfig({
   description: "4A PST",
   themeConfig: {
     nav: [
-      { text: 'Guide', link: '/guide/what-is-hibou' }
+      { text: 'Guide', link: '/guide/getting-started/what-is-hibou' }
     ],
 
     sidebar: [
