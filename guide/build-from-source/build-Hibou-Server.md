@@ -61,7 +61,7 @@ $ sudo apt install -y git python3-pip curl python3-cairo-dev libjpeg8-dev libpan
 ```
 
 ```shell [fedora]
-$ sudo dnf install -y 
+$ sudo dnf install -y git curl gcc python-devel python3-pyaudio python3-cairo-devel gobject-introspection-devel cairo-gobject-devel python3-devel gtk4
 ```
 :::
 
