@@ -1,34 +1,60 @@
-import { defineConfig } from 'vitepress'
+import {groupIconMdPlugin, groupIconVitePlugin} from 'vitepress-plugin-group-icons'
+import {defineConfig} from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "PST Hibou",
-  description: "4A PST",
-  themeConfig: {
-    nav: [
-      { text: 'Guide', link: '/guide/getting-started/what-is-hibou' }
-    ],
+    title: 'Hibou',
+    description: 'Detect, Locate, Indentify drones threat',
+    markdown: {
+        config(md) {
+            md.use(groupIconMdPlugin)
 
-    sidebar: [
-      {
-        text: 'Getting Started',
-        items: [
-          { text: 'What is Hibou', link: '/guide/getting-started/what-is-hibou' },
-          { text: 'Acoustics specifications', link: '/guide/getting-started/acoustic' },
-          { text: 'Markdown Examples', link: '/guide/getting-started/markdown-examples' },
-          { text: 'Credits', link: '/guide/getting-started/credits' },
-        ]
-      },
-      {
-        text: 'Hibou Software',
-        items: [
-          { text: 'Installation', link: '/guide/software/installation'}
-        ]
-      }
-    ],
+        },
+    },
+    vite: {
+        plugins: [
+            groupIconVitePlugin({
+                customIcon: {
+                    'ubuntu': 'logos:ubuntu',
+                    'fedora': 'logos:fedora'
+                },
+            })
+        ],
+    },
+    themeConfig: {
+        nav: [
+            {text: 'Guide', link: '/guide/getting_started/introduction'}
+        ],
 
-    socialLinks: [
-    ]
-  },
-  base: '/documentation'
+        sidebar: [
+            {
+                text: 'GETTING STARTED',
+                items: [
+                    {text: 'Introduction', link: '/guide/getting_started/introduction'}
+                ]
+            },
+            {
+                text: 'INSTALLATION',
+                items: [
+                    {text: 'Server installation and configuration', link: ''},
+                    {text: 'Client installation', link: ''},
+                ]
+            },
+            {
+                text: 'BUILD FROM SOURCE',
+                items: [
+                    {text: 'Build Hibou Server', link: '/guide/build-from-source/build-Hibou-Server'},
+                ]
+            },
+            {
+                text: 'DEBUG',
+                items: [
+                    {text: 'Debug Hibou Server', link: '/guide/debug/hibou-server'},
+                ]
+            }
+        ],
+
+        socialLinks: []
+    },
+    base: '/documentation'
 })
