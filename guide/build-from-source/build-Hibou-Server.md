@@ -99,7 +99,7 @@ For a permanent solution, add the line to your `.bashrc` file.
 
 ## Getting the code
 
-To get the code simply clone the repository:
+To get the code, simply clone the repository:
 
 ```shell
 $ git clone git@github.com:PST4Hibou/Hibou-Server.git
@@ -109,8 +109,18 @@ $ git clone git@github.com:PST4Hibou/Hibou-Server.git
 
 In the project directory, run the following command:
 ```shell
+$ cd Hibou-Server/
 $ uv run main.py
 ```
+
+`uv run` will automatically installed the dependencies and run the program.
+
+If you don't want to run the program you run:
+
+```shell
+$ uv sync
+```
+
 
 ## Debug
 
