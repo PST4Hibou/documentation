@@ -36,7 +36,14 @@ export default defineConfig({
             {
                 text: 'INSTALLATION',
                 items: [
-                    {text: 'Server installation and configuration', link: ''},
+                    {
+                        text: 'Server installation and configuration', items: [
+                            {
+                                text: 'Requirements',
+                                link: '/guide/installation/server-installation-and-configuration/system-requirement'
+                            },
+                        ]
+                    },
                     {text: 'Client installation', link: ''},
                 ]
             },
@@ -44,6 +51,16 @@ export default defineConfig({
                 text: 'BUILD FROM SOURCE',
                 items: [
                     {text: 'Build Hibou Server', link: '/guide/build-from-source/build-Hibou-Server'},
+                    {
+                        text: 'Dev Tips', items: [
+                            {
+                                text: 'Add Devices', items: [
+                                    {text: 'PTZ', link: '/guide/build-from-source/dev-tips/devices/add-ptz.md'},
+                                    {text: 'ADC', link: '/guide/build-from-source/dev-tips/devices/add-adc.md'},
+                                ]
+                            }
+                        ]
+                    },
                 ]
             },
             {
