@@ -15,7 +15,7 @@ For best performance, stability and functionality we have documented some recomm
 
 | Platform                  | Options                                                                                                      |
 |---------------------------|--------------------------------------------------------------------------------------------------------------|
-| Operating System (64 bit) | - Ubuntu 25.10<br/>- **Fedora** 42 (recommended)<br/>- **Ubuntu 24.04 LTS** (recommended)<br/>- Alpine Linux |
+| Operating System (64 bit) | - Ubuntu 25.10<br/>- **Fedora** >=42 (43 recommended)<br/>- **Ubuntu 24.04 LTS** (recommended)<br/>- Alpine Linux |
 | Python                    | - **3.13** (recommended)<br/> - 3.12<br/>- 3.11<br/>                                                         |
 | RAM                       | - **16 Go or above** (recommended)<br/>- 8 Go                                                                |
 
@@ -61,7 +61,7 @@ $ sudo apt install -y git python3-pip curl python3-cairo-dev libjpeg8-dev libpan
 ```
 
 ```shell [fedora]
-$ sudo dnf install -y git curl gcc python-devel python3-pyaudio python3-cairo-devel gobject-introspection-devel cairo-gobject-devel python3-devel gtk4
+$ sudo dnf install -y git curl gcc python3.13-devel portaudio-devel gobject-introspection-devel cairo-gobject-devel gtk4
 ```
 :::
 
