@@ -110,10 +110,11 @@ def to_device(device: TSource) -> Device:
         multicast_ip=res.get("multicast_ip"),
         rtp_payload=res.get("rtp_payload"),
         interface=interface,
+        clock_rate=48000,
     )
 ```
 
-A device as the following structure:
+A device has the following structure:
 
 ```python
 class ADCDevice:
@@ -124,6 +125,7 @@ class ADCDevice:
     multicast_ip: str
     rtp_payload: int
     interface: str
+    clock_rate: int
 ```
 
 ### Example Directory Structure
