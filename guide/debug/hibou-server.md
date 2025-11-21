@@ -3,7 +3,7 @@
 ## GStreamer
 
 You can dynamically enable GStreamer debugging at runtime using the option _**--gst-dbg-level**_. By default, it will be NONE, but you can change it.
-This will make GStreamer output additional data 
+This will make GStreamer output additional data. To know the possible values, refer to [GStreamer's documentation](https://gstreamer.freedesktop.org/documentation/tutorials/basic/debugging-tools.html)
 
 ## Listening to the Audio
 
