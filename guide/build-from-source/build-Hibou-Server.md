@@ -57,11 +57,11 @@ To build the software, you will need to install the following dependencies:
 ::: code-group
 
 ```shell [ubuntu]
-$ sudo apt install -y git python3-pip curl python3-cairo-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++ python3-gi python3-gi-cairo gir1.2-gtk-4.0 libgirepository-2.0-dev gcc libcairo2-dev pkg-config portaudio19-dev python3-pyaudio
+$ sudo apt install -y git curl gcc tshark pkg-config portaudio19-dev g++ python3-pip python3-cairo-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential python3-gi python3-gi-cairo gir1.2-gtk-4.0 libgirepository-2.0-dev libcairo2-dev
 ```
 
 ```shell [fedora]
-$ sudo dnf install -y git curl gcc python3.13-devel portaudio-devel gobject-introspection-devel cairo-gobject-devel gtk4
+$ sudo dnf install -y git curl gcc tshark pkgconf portaudio-devel python3.13-devel  gobject-introspection-devel cairo-gobject-devel gtk4
 ```
 :::
 
