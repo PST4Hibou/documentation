@@ -1,3 +1,3 @@
 # The Hibou PST
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
+Welcome to the documentation of the Hibou PST project!
