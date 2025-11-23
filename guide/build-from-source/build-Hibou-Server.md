@@ -151,7 +151,7 @@ $ uv sync
 
 ::: warning
 If you get an error, make sure .env file is correctly set-up.
-Please visit [Environment variables](/guide/configuration/environment-variables.html).
+Please visit [Environment variables](/guide/installation/server-installation-and-configuration/environment-variables.html).
 :::
 
 ## Debug
