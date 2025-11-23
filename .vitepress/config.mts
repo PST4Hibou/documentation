@@ -48,13 +48,22 @@ export default defineConfig({
                 ]
             },
             {
+                text: 'CONFIGURATION',
+                items: [
+                    {
+                        text: 'Environment variables', link: '/guide/configuration/environment-variables'
+                    },
+                    {text: 'Micro valibration', link: ''},
+                ]
+            },
+            {
                 text: 'BUILD FROM SOURCE',
                 items: [
-                    {text: 'Build Hibou Server', link: '/guide/build-from-source/build-Hibou-Server'},
+                    {text: 'Build Hibou server', link: '/guide/build-from-source/build-Hibou-Server'},
                     {
-                        text: 'Dev Tips', items: [
+                        text: 'Dev tips', items: [
                             {
-                                text: 'Add Devices', items: [
+                                text: 'Add devices', items: [
                                     {text: 'PTZ', link: '/guide/build-from-source/dev-tips/devices/add-ptz.md'},
                                     {text: 'ADC', link: '/guide/build-from-source/dev-tips/devices/add-adc.md'},
                                 ]
@@ -66,7 +75,7 @@ export default defineConfig({
             {
                 text: 'DEBUG',
                 items: [
-                    {text: 'Debug Hibou Server', link: '/guide/debug/hibou-server'},
+                    {text: 'Debug Hibou server', link: '/guide/debug/hibou-server'},
                 ]
             }
         ],

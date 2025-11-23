@@ -149,6 +149,10 @@ If you don't want to run the program, run:
 $ uv sync
 ```
 
+::: warning
+If you get an error, make sure .env file is correctly set-up.
+Please visit [Environment variables](/guide/configuration/environment-variables.html).
+:::
 
 ## Debug
 
