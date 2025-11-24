@@ -92,7 +92,7 @@ $ pipx install uv
 If using curl, make sure the bin folder is in your PATH environment variable.
 If not run: 
 ```shell 
-$ export PATH="/home/$USER/.local/bin:$PATH"`.
+$ export PATH="/home/$USER/.local/bin:$PATH"
 ```
 For a permanent solution, add the line to your `.bashrc` file.
 :::
