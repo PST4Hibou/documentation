@@ -1,6 +1,6 @@
 import {groupIconMdPlugin, groupIconVitePlugin} from 'vitepress-plugin-group-icons'
 import buildFromSource from '../guide/build-from-source/routing'
-import gettingStarted from '../guide/getting_started/routing'
+import gettingStarted from '../guide/getting-started/routing'
 import installation from '../guide/installation/routing'
 import debug from '../guide/debug/routing'
 import {defineConfig} from 'vitepress'
@@ -27,7 +27,7 @@ export default defineConfig({
     },
     themeConfig: {
         nav: [
-            {text: 'Guide', link: '/guide/getting_started/introduction'}
+            {text: 'Guide', link: '/guide/getting-started/introduction'}
         ],
 
         sidebar: [

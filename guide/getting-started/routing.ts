@@ -2,7 +2,7 @@ export default [
     {
         text: 'GETTING STARTED',
         items: [
-            {text: 'Introduction', link: '/guide/getting_started/introduction'}
+            {text: 'Introduction', link: '/guide/getting-started/introduction'}
         ]
     },
 ]

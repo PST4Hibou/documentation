@@ -9,16 +9,13 @@ hero:
   actions:
     - theme: brand
       text: Getting started
-      link: /guide/getting-started/what-is-hibou
-    - theme: alt
-      text: Credits
-      link: /guide/credits
+      link: /guide/getting-started/introduction
 
 features:
-  - title: Feature A
+  - title: Detection
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
+  - title: Confirmation
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
+  - title: Localization
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
