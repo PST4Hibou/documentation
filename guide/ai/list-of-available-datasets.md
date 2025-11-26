@@ -4,8 +4,8 @@ We store all datasets on the plateform [HuggingFace](https://huggingface.co) on 
 
 | Name                                               | Description                                                 | Number of rows      |
 |----------------------------------------------------|-------------------------------------------------------------|---------------------|
-| Hibou-Foundation/ds_7_specto_aug1_chunked_balanced | Spectrogram with a little augmentation of data and balanced | 526,948             |
-| Hibou-Foundation/ds_6_raw_aug_chunked_balanced     | Raw audio with a little augmentation of data and balanced   | 526,948             |
+|  | Spectrogram with a little augmentation of data and balanced |             |
+| Hibou-Foundation/ds_10_raw_aug_0-5_balanced_chunked    | Raw audio with a 0.5 augmentation of data and balanced      | 614,819          |
 | Hibou-Foundation/big_ds_5_specto_noaug_chunked_balanced             | Spectogram and balanced                                     | 439,174             |
 | Hibou-Foundation/big_ds_4_raw_wav_balanced                          | Raw audio and balanced                                      | 439,174             |
 | Hibou-Foundation/big_ds_raw_wav                                     | Raw only                                                    | 774,709             |
