@@ -7,15 +7,16 @@ This documentation describes how to build and run the latest development version
 The development version of Hibou Server is primarily intended for software developers
 and technical users who want to contribute to the project or experiment with advanced features.
 If you simply want to run the software without building it from source, you can download the latest release [here](https://).
-For any help please visit our [forum](https://discord.gg/mhaZFqKA).
+For any help, please visit our [forum](https://discord.gg/mhaZFqKA).
 
 ## System Requirements
 
-For best performance, stability and functionality we have documented some recommendations for running a Nextcloud server.
+For the best performance, 
+stability, and functionality we have documented some recommendations for running a Nextcloud server.
 
 | Platform                  | Options                                                                                                      |
 |---------------------------|--------------------------------------------------------------------------------------------------------------|
-| Operating System (64 bit) | - Ubuntu 25.10<br/>- **Fedora** >=42 (43 recommended)<br/>- **Ubuntu 24.04 LTS** (recommended)<br/>- Alpine Linux |
+| Operating System (64 bit) | - Ubuntu 25.10<br/>- **Fedora** 43 (recommended)<br/>- **Ubuntu 24.04 LTS** (recommended)<br/>- Alpine Linux |
 | Python                    | - **3.13** (recommended)<br/> - 3.12<br/>- 3.11<br/>                                                         |
 | RAM                       | - **16 Go or above** (recommended)<br/>- 8 Go                                                                |
 
@@ -88,18 +89,45 @@ $ pipx install uv
 
 
 ::: info
-If using curl make sure the bin folder is in your PATH environment variable.
+If using curl, make sure the bin folder is in your PATH environment variable.
 If not run: 
 ```shell 
-$ export PATH="/home/$USER/.local/bin:$PATH"`.
+$ export PATH="/home/$USER/.local/bin:$PATH"
 ```
 For a permanent solution, add the line to your `.bashrc` file.
 :::
 
+## Run tshark as non-root
+
+::: info
+If you don't plan to use the auto discovery feature, you can safely skip the section.
+:::
+
+Tshark is a tool that uses the wireshark engine to capture packets.
+Since we use a proprietary device like Dante and auto-discovery over network,
+there is no open protocol to get device configuration like rtp-payload or clock rate.
+One "easy" solution is to capture packets and retrieve information from them.
+
+By default, capturing packets requires root privileges because it involves accessing network interfaces directly.
+To avoid running your application as root, you can allow non-privileged users to capture packets by assigning them to the wireshark group:
+
+```shell
+$ usermod -aG wireshark $USER
+```
+
+After updating group membership, log out or reboot to apply the change.
+
+You can verify permissions using:
+
+```shell
+$ tshark -D
+```
+If the interfaces are listed without permission errors, the setup is correct.
+
 
 ## Getting the code
 
-To get the code, simply clone the repository:
+To get the code, clone the repository:
 
 ```shell
 $ git clone git@github.com:PST4Hibou/Hibou-Server.git
@@ -115,12 +143,16 @@ $ uv run main.py
 
 `uv run` will automatically installed the dependencies and run the program.
 
-If you don't want to run the program you run:
+If you don't want to run the program, run:
 
 ```shell
 $ uv sync
 ```
 
+::: warning
+If you get an error, make sure .env file is correctly set-up.
+Please visit [Environment variables](/guide/installation/server-installation-and-configuration/environment-variables.html).
+:::
 
 ## Debug
 

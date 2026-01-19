@@ -1,4 +1,9 @@
 import {groupIconMdPlugin, groupIconVitePlugin} from 'vitepress-plugin-group-icons'
+import buildFromSource from '../guide/build-from-source/routing'
+import gettingStarted from '../guide/getting-started/routing'
+import installation from '../guide/installation/routing'
+import debug from '../guide/debug/routing'
+import ai from '../guide/ai/routing'
 import {defineConfig} from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
@@ -23,55 +28,15 @@ export default defineConfig({
     },
     themeConfig: {
         nav: [
-            {text: 'Guide', link: '/guide/getting_started/introduction'}
+            {text: 'Guide', link: '/guide/getting-started/introduction'}
         ],
 
         sidebar: [
-            {
-                text: 'GETTING STARTED',
-                items: [
-                    {text: 'Introduction', link: '/guide/getting_started/introduction'}
-                ]
-            },
-            {
-                text: 'INSTALLATION',
-                items: [
-                    {
-                        text: 'Server installation and configuration', items: [
-                            {
-                                text: 'Requirements',
-                                link: '/guide/installation/server-installation-and-configuration/system-requirement'
-                            },
-                        ]
-                    },
-                    {text: 'Client installation', link: ''},
-                ]
-            },
-            {
-                text: 'BUILD FROM SOURCE',
-                items: [
-                    {text: 'Build Hibou Server', link: '/guide/build-from-source/build-Hibou-Server'},
-                    {
-                        text: 'Dev Tips', items: [
-                            {
-                                text: 'Add Devices', items: [
-                                    {text: 'PTZ', link: '/guide/build-from-source/dev-tips/devices/add-ptz.md'},
-                                    {text: 'ADC', link: '/guide/build-from-source/dev-tips/devices/add-adc.md'},
-                                ]
-                            },
-
-                            {text: 'Audio AI', link: '/guide/build-from-source/dev-tips/audio-ai.md'},
-                            {text: 'GStreamer Pipelines', link: '/guide/build-from-source/dev-tips/devices/gstreamer.md'},
-                        ]
-                    },
-                ]
-            },
-            {
-                text: 'DEBUG',
-                items: [
-                    {text: 'Debug Hibou Server', link: '/guide/debug/hibou-server'},
-                ]
-            }
+            ...gettingStarted,
+            ...installation,
+            ...buildFromSource,
+            ...debug,
+            ...ai
         ],
 
         socialLinks: []
