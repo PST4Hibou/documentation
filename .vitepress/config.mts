@@ -58,7 +58,10 @@ export default defineConfig({
                                     {text: 'PTZ', link: '/guide/build-from-source/dev-tips/devices/add-ptz.md'},
                                     {text: 'ADC', link: '/guide/build-from-source/dev-tips/devices/add-adc.md'},
                                 ]
-                            }
+                            },
+
+                            {text: 'Audio AI', link: '/guide/build-from-source/dev-tips/audio-ai.md'},
+                            {text: 'GStreamer Pipelines', link: '/guide/build-from-source/dev-tips/devices/gstreamer.md'},
                         ]
                     },
                 ]
