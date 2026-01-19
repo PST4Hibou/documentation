@@ -10,7 +10,9 @@ export default [
                             {text: 'PTZ', link: '/guide/build-from-source/dev-tips/devices/add-ptz.md'},
                             {text: 'ADC', link: '/guide/build-from-source/dev-tips/devices/add-adc.md'},
                         ]
-                    }
+                    },
+                    {text: 'GStreamer', link: '/guide/build-from-source/dev-tips/gstreamer.md'},
+                    {text: 'Audio AI', link: '/guide/build-from-source/dev-tips/audio-ai.md'},
                 ]
             },
         ]
