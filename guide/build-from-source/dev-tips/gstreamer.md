@@ -108,7 +108,7 @@ videotestsrc ! videoconvert ! autovideosink
 ```
 A bit more complex:
 ```
-audiotestsrc ! audioresample ! tee name=t t. ! autoaudiosink 
+audiotestsrc ! audioconvert ! audioresample ! tee name=t ! queue ! autoaudiosink t. ! queue ! wavenc ! filesink location=test.wav
 ```
 Here, we generate an audio, resample it to something we want. Then, we play the audio, and record it in a wav file
 at the time.
