@@ -15,10 +15,10 @@ the network, broadcasting. Maybe you used something like that to watch football 
 internet. What the software will usually have to do is to get the video stream, decode it and play the video, where
 playing the video means to show images (continuous flow of images) and play audio alongside it. Here, we just described
 a pipeline! In this example, we've got these elements:\
-Network Source > Video Decoder\
+```Network Source > Video Decoder```\
 Then in parallel:\
-Video Decoder > Audio > Play on speakers\
-Video Decoder > Image Viewer > Show to display
+```Video Decoder > Audio > Play on speakers```\
+```Video Decoder > Image Viewer > Show to display```
 
 ## GStreamer's system
 GStreamer provides events and elements. You will most likely never have to deal with events, unless you have
@@ -57,22 +57,22 @@ the elements. It's mainly "just" a container for the elements (it inherits _GstB
 Most of the time, you will just use the text to pipeline tool that GStreamer offers through Gst.parse_launch.
 
 ### Basics
-| Syntax                        | Description                                                                                  |
-|-------------------------------|----------------------------------------------------------------------------------------------|
-| \<element> \<prop_0>=\<value> | Declare an element and set its properties.                                                   |
-| (\<typing>)\<value>           | Typing a property. It may be useful. Most common are int, bool and string.                   |
-| \<input> ! \<output>          | Chain the output element with the input element. Like the shell's ```\|``` but it's ```!```        |
-| \<elem_name>.                 | Use the element with the name. Can be used like ```name. ! <output>``` or ```<input> ! name.``` |
-| \<elem_name>.\<pad_name>      | Select a specific pad of an element.                                                         |
+| Syntax                           | Description                                                                                     |
+|----------------------------------|-------------------------------------------------------------------------------------------------|
+| \<element\> \<prop_0\>=\<value\> | Declare an element and set its properties.                                                      |
+| (\<typing\>)\<value\>            | Typing a property. It may be useful. Most common are int, bool and string.                      |
+| \<input> ! \<output\>            | Chain the output element with the input element. Like the shell's ```\|``` but it's ```!```     |
+| \<elem_name\>.                   | Use the element with the name. Can be used like ```name. ! <output>``` or ```<input> ! name.``` |
+| \<elem_name\>.\<pad_name\>       | Select a specific pad of an element.                                                            |
 
 To "separate", parallelize a part of the pipeline, you can use the "spacing" syntax along a named element.
 ```
 <intput> name=in ! <something> in. ! <something_else>
 ```
-Here you can see that we have _something_ followed by _in._, but just seprated by a simple space.
+Here you can see that we have _something_ followed by _in._, but just separated by a simple space.
 What this means is that because we have something ending with a dot, it will solve the name (be it an element, or
 something more specific like an element's pad name) and make it as source for the next element.
-In terms of flow, we have <input> pushing data through <something> **AND** <something_else> at the same time, in
+In terms of flow, we have \<input\> pushing data through \<something\> **AND** \<something_else\> at the same time, in
 parallel.
 
 ### Useful basic elements
