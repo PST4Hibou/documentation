@@ -4,6 +4,7 @@ import gettingStarted from '../guide/getting-started/routing'
 import installation from '../guide/installation/routing'
 import debug from '../guide/debug/routing'
 import ai from '../guide/ai/routing'
+import drone from '../guide/drone/routing'
 import {defineConfig} from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
@@ -36,7 +37,8 @@ export default defineConfig({
             ...installation,
             ...buildFromSource,
             ...debug,
-            ...ai
+            ...ai,
+            ...drone
         ],
 
         socialLinks: []
