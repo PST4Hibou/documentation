@@ -59,8 +59,8 @@ Updating your Appwrite environment variables requires you to edit your Hibou .en
 
 | Name              | Description                                                                       | Default               |
 |-------------------|-----------------------------------------------------------------------------------|-----------------------|
-| `AI_DEVICE`       | AI's models can either run on CPU (`cpu`) or GPU (`cuda`). Default is `cpu`.      | `cpu`                 |
-| `AI_NUM_PROC`     | Number of processors used by AI. Default is 4                                     | 4                     |
-| `AI_CV_ENABLE`    | When computer vision detection is enable. Default is false.                       | false                 |
-| `AI_CV_MODEL`     | Directory where model of computer vision is saved. Default is `yolo11n_drone.pt`  | `yolo11n_drone.pt`    |
+| `AI_DEVICE`       | AI's models can either run on CPU (`cpu`) or GPU (`cuda`).                        | `cpu`                 |
+| `AI_NUM_PROC`     | Number of processors used by AI.                                                  | 4                     |
+| `AI_CV_ENABLE`    | When computer vision detection is enable.                                         | false                 |
+| `AI_CV_MODEL`     | Directory where model of computer vision is saved.                                | `yolo11n_drone.pt`    |
 | `AI_CV_MODEL_TYPE`| The computer vision model used                                                    | `yolo`                |
