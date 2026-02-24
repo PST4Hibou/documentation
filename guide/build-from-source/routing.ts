@@ -11,6 +11,7 @@ export default [
                             {text: 'ADC', link: '/guide/build-from-source/dev-tips/devices/add-adc.md'},
                         ]
                     },
+                    {text: 'Yamaha', link: '/guide/build-from-source/dev-tips/yamaha.md'},
                     {text: 'GStreamer', link: '/guide/build-from-source/dev-tips/gstreamer.md'},
                     {text: 'Audio AI', link: '/guide/build-from-source/dev-tips/audio-ai.md'},
                 ]
