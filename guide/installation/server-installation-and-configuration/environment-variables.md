@@ -33,7 +33,7 @@ Updating your Appwrite environment variables requires you to edit your Hibou .en
 
 | Name                  | Description                                                                                       | Default                       |
 |-----------------------|---------------------------------------------------------------------------------------------------|-------------------------------|
-| `STATIONARY`          | When the noise reduction stationary is used.                                                      | True                          |
+| `STATIONARY`          | When the noise reduction stationary is used.                                                      | true                          |
 
 ### Logs
 
@@ -45,15 +45,15 @@ Updating your Appwrite environment variables requires you to edit your Hibou .en
 
 ### PTZ
 
-| Name                | Description                                     | Default           |
-|---------------------|-------------------------------------------------|-------------------|
-| `PTZ_USERNAME`      | PTZ username.                                   | ""                |
-| `PTZ_PASSWORD`      | PTZ password.                                   | ""                |
-| `PTZ_HOST`          | PTZ host name address.                          | ""                |
-| `PTZ_VIDEO_CHANNEL` | Can be either: 1, 2, 3                          | 1                 |
-| `PTZ_RTSP_PORT`     | RTSP port for video stream.                     | 554               |
-| `PTZ_START_AZIMUTH` | initial azimuth angle of the camera.            | 1770              |
-| `PTZ_END_AZIMUTH`   | final azimuth angle of a predefined movement.   | 2793              |
+| Name                | Description                                                 | Default           |
+|---------------------|-------------------------------------------------------------|-------------------|
+| `PTZ_USERNAME`      | PTZ username. Leave empty to skip initialization            | None              |
+| `PTZ_PASSWORD`      | PTZ password. Leave empty to skip initialization            | None              |
+| `PTZ_HOST`          | PTZ host name address. Leave empty to skip initialization   | None              |
+| `PTZ_VIDEO_CHANNEL` | Can be either: 1, 2, 3                                      | 1                 |
+| `PTZ_RTSP_PORT`     | RTSP port for video stream.                                 | 554               |
+| `PTZ_START_AZIMUTH` | initial azimuth angle of the camera.                        | 1770              |
+| `PTZ_END_AZIMUTH`   | final azimuth angle of a predefined movement.               | 2793              |
 
 ### AI
 
