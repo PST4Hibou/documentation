@@ -9,6 +9,25 @@ This will make GStreamer output additional data. To know the possible values, re
 
 You can use _**AUDIO_PLAYBACK**_ to listen to... well, the audio before it is (pre-)processed to determine the presence of a drone.
 
+## Network access
+You must have an ip on the same network as the devices.
+
+```bash
+sudo ip addr add 192.168.250.11/24 dev enp3s0
+```
+
+You should be able to access the camera interface via `http://192.168.250.30`
+
+### Device discovery
+
+If the discovery doesn't work, first verify that you can ping the machines. If so, you should verify
+that the broadcast packet leaves from the correct IP.
+You may need to add a route to broadcast from the correct ip.
+
+```bash
+sudo ip route add 224.0.0.0/4 dev enp3s0 src 192.168.250.11
+```
+
 ## Others, GUI
 
 You can manually enable the followings in _src\.settings_.

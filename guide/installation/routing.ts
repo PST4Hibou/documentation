@@ -14,9 +14,6 @@ export default [
                     {
                         text: 'Micro calibration'
                     },
-                    {
-                        text: 'Routing', link: '/guide/installation/server-installation-and-configuration/routing'
-                    },
                 ]
             },
             {text: 'Client installation', link: ''},
