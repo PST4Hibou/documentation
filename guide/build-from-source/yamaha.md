@@ -16,3 +16,28 @@
 | `rtp_payload`                     | `99`              | RTP payload type                                                                  |
 | `port`                            | `5005`            | RTP/UDP port for multicast audio reception                                        |
 | `model`                           | `"1966"`          | Dante device ID uniquely identifying Tio1608-D hardware                           |
+
+```json
+{
+    "controllers": [
+        {
+            "name": "YamahaTio1608",
+            "ip": "192.168.250.15",
+            "ha_gains": [30, 30, 30, 30],
+            "devices": [
+                {
+                    "name": "Y001-Yamaha-Tio1608-D2-8f6e69",
+                    "model": "1966",
+                    "ipv4": "192.168.250.16",
+                    "port": 5005,
+                    "nb_channels": 4,
+                    "multicast_ip": "239.69.250.255",
+                    "rtp_payload": 99,
+                    "interface": "enp3s0",
+                    "clock_rate": 48000
+                }
+            ]
+        }
+    ]
+}
+```
