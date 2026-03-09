@@ -36,13 +36,16 @@ export default defineConfig({
             {text: 'Guide', link: '/guide/getting-started/introduction'}
         ],
 
-        sidebar: [
-            ...gettingStarted,
-            ...installation,
-            ...buildFromSource,
-            ...debug,
-            ...ai
-        ],
+        sidebar: {
+            '/guide/': [
+                ...gettingStarted,
+                ...installation,
+                ...buildFromSource,
+                ...debug,
+                ...ai,
+            ],
+            ...docsSidebars,
+        },
 
         socialLinks: []
     },
