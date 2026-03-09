@@ -2,11 +2,13 @@
   "dependencies": {
     "D": "^1.0.0",
     "vitepress": "2.0.0-alpha.12",
-    "vitepress-plugin-group-icons": "^1.6.5"
+    "vitepress-plugin-group-icons": "^1.6.5",
+    "@unocss/preset-icons": "^0.60.4",
+    "unocss": "^0.60.4"
   },
   "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:dev": "./scripts/build.sh && vitepress dev",
+    "docs:build": "./scripts/build.sh && vitepress build",
+    "docs:preview": "./scripts/build.sh && vitepress preview"
   }
 }

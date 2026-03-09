@@ -5,6 +5,11 @@ import installation from '../guide/installation/routing'
 import debug from '../guide/debug/routing'
 import ai from '../guide/ai/routing'
 import {defineConfig} from 'vitepress'
+import { fileURLToPath } from 'node:url'
+import { buildDocsSidebars } from './sidebar/docs'
+import UnoCSS from 'unocss/vite'
+
+const docsSidebars = buildDocsSidebars(fileURLToPath(new URL('../docs', import.meta.url)))
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -13,7 +18,6 @@ export default defineConfig({
     markdown: {
         config(md) {
             md.use(groupIconMdPlugin)
-
         },
     },
     vite: {
@@ -23,7 +27,8 @@ export default defineConfig({
                     'ubuntu': 'logos:ubuntu',
                     'fedora': 'logos:fedora'
                 },
-            })
+            }),
+            UnoCSS()
         ],
     },
     themeConfig: {
