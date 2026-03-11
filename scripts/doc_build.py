@@ -154,7 +154,7 @@ def generate(base_path: str, docs_dir: str) -> bool:
     success_count = 0
     for module_name, obj in loaded.items():
         try:
-            write_module_doc(obj, out_dir, module_name)
+            write_module_doc(obj, out_dir, module_name, all_loaded=loaded)
             print(f"✅ Generated {module_name}")
             success_count += 1
         except Exception as e:

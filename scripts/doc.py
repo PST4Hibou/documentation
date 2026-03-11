@@ -228,8 +228,108 @@ def _write_attribute(f, attr: griffe.Attribute, heading_level: int, icon: str = 
     if attr.docstring:
         f.write(f"{prettify(attr.docstring.value)}\n\n")
 
+def _collect_module_imports(module) -> list[str]:
+    """Extract imported module names from a griffe module's members."""
+    imports = []
+    for member in module.members.values():
+        if isinstance(member, griffe.Alias):
+            # griffe.Alias represents an import
+            if member.target_path:
+                # Get the top-level module name
+                top = member.target_path.split(".")[0]
+                imports.append(top)
+    return list(set(imports))
 
-def write_module_doc(module, out_dir: Path, module_name: str) -> None:
+
+def write_class_diagram(f, classes: list[griffe.Class]) -> None:
+    """Write a Mermaid class diagram for the given classes."""
+    if not classes:
+        return
+
+    f.write("## Classes Diagram\n\n")
+    f.write("```mermaid\nclassDiagram\n")
+
+    for cls in classes:
+        # Class definition
+        f.write(f"    class {cls.name} {{\n")
+
+        # Attributes
+        for member in cls.members.values():
+            if isinstance(member, griffe.Attribute) and not member.name.startswith("__"):
+                annotation = f" {member.annotation}" if member.annotation else ""
+                f.write(f"        +{member.name}{annotation}\n")
+
+        # Methods
+        for member in cls.members.values():
+            if isinstance(member, griffe.Function) and not member.name.startswith("__"):
+                ret = f" {member.returns}" if member.returns else ""
+                f.write(f"        +{member.name}(){ret}\n")
+
+        f.write("    }\n")
+
+        # Inheritance arrows
+        for base in cls.bases:
+            base_name = str(base).split(".")[-1]  # use short name
+            f.write(f"    {base_name} <|-- {cls.name}\n")
+
+        # Relationships: attributes whose type is a known internal class
+        known_class_names = {c.name for c in classes}
+        for member in cls.members.values():
+            if isinstance(member, griffe.Attribute) and member.annotation:
+                annotation_str = str(member.annotation)
+                for known in known_class_names:
+                    if known in annotation_str and known != cls.name:
+                        f.write(f"    {cls.name} --> {known} : {member.name}\n")
+
+    f.write("```\n\n")
+
+
+def write_dependency_graph(f, module_name: str, all_loaded: dict) -> None:
+    module = all_loaded.get(module_name)
+    if not module:
+        return
+
+    deps = set()
+    for member in module.members.values():
+        if not isinstance(member, griffe.Alias):
+            continue
+        target = member.target_path
+        if not target:
+            continue
+
+        # Strip leading 'src.' prefix if present to match all_loaded keys
+        if target.startswith("src."):
+            target = target[4:]
+
+        # Find the matching internal module by stripping the member name
+        # e.g. 'modules.audio.streaming.sources.gstreamer_source.GstreamerSource'
+        # -> try 'modules.audio.streaming.sources.gstreamer_source' first
+        parts = target.split(".")
+        for depth in range(len(parts), 0, -1):
+            candidate = ".".join(parts[:depth])
+            if candidate in all_loaded and candidate != module_name:
+                deps.add(candidate)
+                break
+
+    if not deps:
+        return
+
+    f.write("## Module Dependencies\n\n")
+    f.write("```mermaid\ngraph LR\n")
+
+    def node_id(name: str) -> str:
+        return name.replace(".", "_")
+
+    f.write(f'    {node_id(module_name)}["{module_name}"]\n')
+    for dep in sorted(deps):
+        f.write(f'    {node_id(dep)}["{dep}"]\n')
+    for dep in sorted(deps):
+        f.write(f'    {node_id(module_name)} --> {node_id(dep)}\n')
+
+    f.write("```\n\n")
+
+
+def write_module_doc(module, out_dir: Path, module_name: str, all_loaded: dict = {}) -> None:
     doc_path = out_dir / Path(*module_name.split(".")).with_suffix(".md")
     doc_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -240,6 +340,9 @@ def write_module_doc(module, out_dir: Path, module_name: str) -> None:
             f.write(f"{prettify(module.docstring.value)}\n\n")
 
         classes = [m for m in module.members.values() if isinstance(m, griffe.Class)]
+        write_class_diagram(f, classes)
+        write_dependency_graph(f, module_name, all_loaded)
+
         if classes:
             f.write("## Classes\n\n")
             for cls in classes:
