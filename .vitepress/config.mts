@@ -9,8 +9,32 @@ import {defineConfig} from 'vitepress'
 import { fileURLToPath } from 'node:url'
 import { buildDocsSidebars } from './sidebar/docs'
 import UnoCSS from 'unocss/vite'
+import fs from 'node:fs'
 
 const docsSidebars = buildDocsSidebars(fileURLToPath(new URL('../docs', import.meta.url)))
+const docsRoot = fileURLToPath(new URL('../docs', import.meta.url))
+
+function buildDocsFooterLinks(): { text: string; collapsed: boolean; items: { text: string; link: string }[] }[] {
+    const projects = fs.readdirSync(docsRoot, {withFileTypes: true})
+        .filter((entry) => entry.isDirectory() && !entry.name.startsWith('.'))
+        .map((entry) => entry.name)
+        .sort((a, b) => a.localeCompare(b))
+
+    if (!projects.length) {
+        return []
+    }
+
+    return [
+        {
+            text: 'More',
+            collapsed: true,
+            items: projects.map((project) => ({
+                text: project.replace(/[_-]+/g, ' ').replace(/\b\w/g, (match) => match.toUpperCase()),
+                link: `/docs/${project}/`,
+            })),
+        },
+    ]
+}
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -36,7 +60,9 @@ export default defineConfig({
         nav: [
             {text: 'Guide', link: '/guide/getting-started/introduction'}
         ],
-
+        search: {
+            provider: 'local',
+        },
         sidebar: {
             '/guide/': [
                 ...gettingStarted,
@@ -45,6 +71,7 @@ export default defineConfig({
                 ...debug,
                 ...ai,
                 ...drone,
+                ...buildDocsFooterLinks(),
             ],
             ...docsSidebars,
         },

@@ -99,6 +99,32 @@ function readDirItems(
     return items
 }
 
+function buildFooterLinks(projects: string[], currentProject: string): DefaultTheme.SidebarItem[] {
+    const otherDocs = projects
+        .filter((project) => project !== currentProject)
+        .map((project) => ({
+            text: formatTitle(project),
+            link: `/docs/${project}/`,
+        }))
+
+    const items: DefaultTheme.SidebarItem[] = [
+        ...otherDocs,
+        {text: 'Guide', link: '/guide/getting-started/introduction.html'},
+    ]
+
+    if (!items.length) {
+        return []
+    }
+
+    return [
+        {
+            text: 'More',
+            collapsed: true,
+            items,
+        },
+    ]
+}
+
 export function buildDocsSidebars(docsRoot: string): Record<string, DefaultTheme.SidebarItem[]> {
     const result: Record<string, DefaultTheme.SidebarItem[]> = {}
     const projects = fs.readdirSync(docsRoot, {withFileTypes: true})
@@ -107,7 +133,11 @@ export function buildDocsSidebars(docsRoot: string): Record<string, DefaultTheme
         .sort((a, b) => a.localeCompare(b))
 
     projects.forEach((project) => {
-        result[`/docs/${project}/`] = readDirItems(docsRoot, project, '', 0)
+        const sidebarItems = readDirItems(docsRoot, project, '', 0)
+        result[`/docs/${project}/`] = [
+            ...sidebarItems,
+            ...buildFooterLinks(projects, project),
+        ]
     })
 
     return result
