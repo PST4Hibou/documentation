@@ -10,6 +10,9 @@ import { fileURLToPath } from 'node:url'
 import { buildDocsSidebars } from './sidebar/docs'
 import UnoCSS from 'unocss/vite'
 import fs from 'node:fs'
+import { defineConfig } from 'vitepress'
+import { vitepressMermaidPreview } from 'vitepress-mermaid-preview'
+
 
 const docsSidebars = buildDocsSidebars(fileURLToPath(new URL('../docs', import.meta.url)))
 const docsRoot = fileURLToPath(new URL('../docs', import.meta.url))
@@ -36,13 +39,14 @@ function buildDocsFooterLinks(): { text: string; collapsed: boolean; items: { te
     ]
 }
 
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
     title: 'Hibou',
     description: 'Detect, Locate, Indentify drones threat',
     markdown: {
-        config(md) {
-            md.use(groupIconMdPlugin)
+        config: (md) => {
+            vitepressMermaidPreview(md.use(groupIconMdPlugin), { showToolbar: true })
         },
     },
     vite: {
