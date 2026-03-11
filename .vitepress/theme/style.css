@@ -24,3 +24,39 @@ span[class~="i-carbon:function-2"] {
 span[class~="i-carbon:feature-membership-filled"] {
   color: #a501f0;
 }
+
+/* Theme-aligned search colors (local search uses DocSearch styles). */
+:root {
+  --docsearch-primary-color: var(--vp-c-brand-1);
+  --docsearch-text-color: var(--vp-c-text-1);
+  --docsearch-muted-color: var(--vp-c-text-2);
+  --docsearch-modal-background: var(--vp-c-bg);
+  --docsearch-searchbox-background: var(--vp-c-bg-soft);
+  --docsearch-searchbox-shadow: none;
+  --docsearch-hit-color: var(--vp-c-text-1);
+  --docsearch-hit-active-color: var(--vp-c-text-1);
+  --docsearch-hit-background: var(--vp-c-bg-soft);
+  --docsearch-footer-background: var(--vp-c-bg);
+  --docsearch-key-gradient: var(--vp-c-bg-elv);
+  --docsearch-key-shadow: none;
+  --vp-local-search-result-border: var(--vp-c-bg-soft);
+}
+
+:root.dark {
+  --docsearch-modal-background: var(--vp-c-bg);
+  --docsearch-searchbox-background: var(--vp-c-bg-soft);
+  --docsearch-hit-background: var(--vp-c-bg-elv);
+  --docsearch-footer-background: var(--vp-c-bg);
+}
+
+.result {
+  background-color: var(--vp-c-bg-soft);
+}
+
+.search-bar {
+    background-color: var(--vp-c-default-soft);
+}
+
+#local-search .DocSearch-Button {
+    background-color: var(--vp-c-bg-soft);
+}
