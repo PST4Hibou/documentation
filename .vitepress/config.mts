@@ -46,7 +46,8 @@ export default defineConfig({
     description: 'Detect, Locate, Indentify drones threat',
     markdown: {
         config: (md) => {
-            vitepressMermaidPreview(md.use(groupIconMdPlugin), { showToolbar: true })
+            md.use(groupIconMdPlugin)
+            vitepressMermaidPreview(md, { showToolbar: true })
         },
     },
     vite: {
