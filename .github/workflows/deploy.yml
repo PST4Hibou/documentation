@@ -49,8 +49,8 @@ jobs:
         uses: astral-sh/setup-uv@v7
       - name: Install portaudio
         run: |
-          apt-get update
-          apt-get install -y portaudio19-dev
+          sudo apt-get update
+          sudo apt-get install -y portaudio19-dev
       - name: Build with VitePress
         run: npm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
       - name: Upload artifact
