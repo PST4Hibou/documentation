@@ -3,6 +3,8 @@ import presetIcons from '@unocss/preset-icons'
 import presetUno from 'unocss/preset-uno'
 
 export default defineConfig({
+  // Avoid Vite 5's css plugin transform object incompatibility during build.
+  postcss: false,
   presets: [
     presetUno(),
     presetIcons({

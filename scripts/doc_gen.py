@@ -43,3 +43,5 @@ for out_dir, repo_url in repos.repositories:
         print("STDOUT:", result.stdout)
         print("STDERR:", result.stderr)
         exit(1)
+
+    print("STDOUT:", result.stdout)

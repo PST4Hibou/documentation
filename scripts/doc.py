@@ -6,6 +6,7 @@ import re
 # Global type registry: type name -> relative doc link
 # e.g. {"AudioWorker": "modules/audio/worker", "DanteADCDevice": "modules/audio/devices/dante/models"}
 _TYPE_REGISTRY: dict[str, str] = {}
+_DOCS_BASE_PREFIX = ""
 
 
 # Fallback docs for well-known packages
@@ -79,21 +80,33 @@ def register_external_type(name: str, url: str) -> None:
     _EXTERNAL_DOCS[name] = url
 
 
+def set_docs_base_prefix(prefix: str) -> None:
+    """Set the base URL prefix for generated internal links (e.g., /server)."""
+    global _DOCS_BASE_PREFIX
+    if not prefix:
+        _DOCS_BASE_PREFIX = ""
+        return
+    normalized = prefix if prefix.startswith("/") else f"/{prefix}"
+    _DOCS_BASE_PREFIX = normalized.rstrip("/")
+
+
 def build_type_registry(modules: dict[str, any]) -> None:
     """
     Populate _TYPE_REGISTRY from all loaded griffe modules.
     Call this once after all modules are loaded, before writing docs.
     """
     global _TYPE_REGISTRY
+    base = _DOCS_BASE_PREFIX
     for module_name, module in modules.items():
         link = "/".join(module_name.split("."))
+        doc_path = f"{base}/{link}" if base else f"/{link}"
         # Register classes
         for member in module.members.values():
             if isinstance(member, griffe.Class):
-                _TYPE_REGISTRY[member.name] = f"/{link}#{member.name.lower()}"
+                _TYPE_REGISTRY[member.name] = f"{doc_path}#{member.name.lower()}"
             # Register type aliases (module-level Attribute with a class value)
             elif isinstance(member, griffe.Attribute):
-                _TYPE_REGISTRY[member.name] = f"/{link}#{member.name.lower()}"
+                _TYPE_REGISTRY[member.name] = f"{doc_path}#{member.name.lower()}"
 
 
 def _resolve_type(name: str) -> str | None:

@@ -108,8 +108,8 @@ function buildFooterLinks(projects: string[], currentProject: string): DefaultTh
         }))
 
     const items: DefaultTheme.SidebarItem[] = [
-        ...otherDocs,
         {text: 'Guide', link: '/guide/getting-started/introduction.html'},
+        ...otherDocs,
     ]
 
     if (!items.length) {

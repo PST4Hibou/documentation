@@ -1,8 +1,9 @@
 {
   "dependencies": {
-    "@unocss/preset-icons": "^0.60.4",
+    "@unocss/preset-icons": "^0.65.0",
+    "@unocss/preset-uno": "^0.65.0",
     "D": "^1.0.0",
-    "unocss": "^0.60.4",
+    "unocss": "^0.65.0",
     "vitepress": "2.0.0-alpha.12",
     "vitepress-mermaid-preview": "^0.1.1",
     "vitepress-plugin-group-icons": "^1.6.5"

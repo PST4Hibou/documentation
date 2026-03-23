@@ -1,7 +1,7 @@
 import sys
 import griffe
 from pathlib import Path
-from doc import write_module_doc, build_type_registry
+from doc import write_module_doc, build_type_registry, set_docs_base_prefix
 
 
 def get_import_root(project_root: Path) -> Path:
@@ -113,11 +113,23 @@ def write_index(out_dir: Path, modules: list[str], readme: Path | None = None) -
     return True
 
 
+def compute_docs_base_prefix(out_dir: Path) -> str:
+    parts = list(out_dir.parts)
+    if "docs" in parts:
+        idx = parts.index("docs")
+        suffix = parts[idx:]
+        if suffix:
+            return "/" + "/".join(suffix)
+    return ""
+
+
 def generate(base_path: str, docs_dir: str) -> bool:
     project_root = Path(base_path).resolve()
     import_root = get_import_root(project_root)
     out_dir = Path(docs_dir).resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
+
+    set_docs_base_prefix(compute_docs_base_prefix(out_dir))
 
     if str(import_root) not in sys.path:
         sys.path.insert(0, str(import_root))
