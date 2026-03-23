@@ -32,7 +32,7 @@ for out_dir, repo_url in repos.repositories:
 
     # Run doc_build.py with uv run for this repo
     cmd = [
-        "uv", "run", "--directory", ".",
+        "uv", "run", "--directory", ".", "--with", "griffe",
         "python", str(Path("./scripts/doc_build.py").resolve()),
         str(Path(tmp_path).resolve()), str(Path(docs_path).resolve())
     ]
