@@ -25,11 +25,6 @@ for out_dir, repo_url in repos.repositories:
             print(result.stdout.decode("utf-8"))
             exit(1)
 
-    result = subprocess.run(["uv", "add", "griffe"], capture_output=True, cwd=tmp_path)
-    if result.returncode != 0:
-        print("Failed to add griffe to the UV of", out_dir)
-        exit(1)
-
     # Run doc_build.py with uv run for this repo
     cmd = [
         "uv", "run", "--directory", ".", "--with", "griffe",
