@@ -1,0 +1,26 @@
+span[class^="i-carbon:"] {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}
+
+span[class~="i-carbon:api"] {
+  color: #e53935;
+}
+
+span[class~="i-carbon:block-storage"] {
+  color: #1e88e5;
+}
+
+span[class~="i-carbon:cube"] {
+  color: #43a047;
+}
+
+span[class~="i-carbon:function-2"] {
+  color: #ff9b00;
+}
+
+span[class~="i-carbon:feature-membership-filled"] {
+  color: #a501f0;
+}

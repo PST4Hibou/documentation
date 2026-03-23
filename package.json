@@ -1,12 +1,15 @@
 {
   "dependencies": {
+    "@unocss/preset-icons": "^0.60.4",
     "D": "^1.0.0",
+    "unocss": "^0.60.4",
     "vitepress": "2.0.0-alpha.12",
+    "vitepress-mermaid-preview": "^0.1.1",
     "vitepress-plugin-group-icons": "^1.6.5"
   },
   "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:dev": "./scripts/build.sh && vitepress dev",
+    "docs:build": "./scripts/build.sh && vitepress build",
+    "docs:preview": "./scripts/build.sh && vitepress preview"
   }
 }
