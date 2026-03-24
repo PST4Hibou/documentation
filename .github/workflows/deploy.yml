@@ -50,7 +50,7 @@ jobs:
       - name: Install portaudio
         run: |
           sudo apt-get update
-          sudo apt-get install -y portaudio19-dev
+          sudo apt-get install -y portaudio19-dev pkg-config python3-cairo-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential libgirepository-2.0-dev libcairo2-dev
       - name: Build with VitePress
         run: npm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
       - name: Upload artifact
