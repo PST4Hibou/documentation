@@ -8,17 +8,11 @@ To add an AI model, there's two requirements:
 
 ### Defining the model
 
-Add a python file in _assets/models_, with the name corresponding to your model's.
-The formatting is as follows: **<model_name>\.py**.
-For instance, if your model's name is "CRNN L2", then you'll have the file _CRNN L2.py_.
-The file must define a callable named **ModelBuilder**, returning a new instance of the model.
-When instantiating the model, this callable will be used.
+Create a directory in _assets/audio_models_ with the name of your model. Inside this directory, you must have 2 files :
+- model.py : This file contains the definition of your model and the processing of the data
+- model.pt : This file contains the weights of your model, in the format of a PyTorch state dict.
 
-::: info
+::: warning
 As of now, only PyTorch is supported, meaning all inputs to the model will be classes of
 PyTorch.
 :::
-
-### Providing the weights
-Following the same conventions as [previously](#defining-the-model), your file must be placed
-in _assets/models_, for the filename, it should be formatted as **<model_name>\.pt**.
