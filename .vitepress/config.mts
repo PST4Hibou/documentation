@@ -5,6 +5,7 @@ import installation from '../guide/installation/routing'
 import debug from '../guide/debug/routing'
 import ai from '../guide/ai/routing'
 import drone from '../guide/drone/routing'
+import webInterface from '../guide/web-interface/routing'
 import {defineConfig} from 'vitepress'
 import { fileURLToPath } from 'node:url'
 import { buildDocsSidebars } from './sidebar/docs'
@@ -76,6 +77,7 @@ export default defineConfig({
                 ...debug,
                 ...ai,
                 ...drone,
+                ...webInterface,
                 ...buildDocsFooterLinks(),
             ],
             ...docsSidebars,
