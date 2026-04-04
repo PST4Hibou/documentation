@@ -27,7 +27,7 @@ You should also populate the .env with your mapbox access token :
 NUXT_PUBLIC_MAPBOX_ACCESS_TOKEN={YOURTOKEN}
 ```
 
-This will start the development server and you can access the web interface at http://localhost:3000.
+This will start the development server and you can access the web interface at `http://localhost:3000`.
 
 ## How to run, backend
 
