@@ -13,3 +13,5 @@ We selected only 2 models that we are currently using in production.
 To develop train the AI models we used our computer and the jupyter notebooks at https://jupyter.esiea.fr
 
 You should ask the Jupyter administrator to give you access to more GPU, RAM and CPU.
+
+The models weights files are stored in a hugging face repository : https://huggingface.co/Hibou-Foundation/audio-models/tree/main
