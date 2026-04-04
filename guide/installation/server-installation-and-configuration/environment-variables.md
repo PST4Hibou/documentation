@@ -57,10 +57,27 @@ Updating your Appwrite environment variables requires you to edit your Hibou .en
 
 ### AI
 
-| Name              | Description                                                                       | Default               |
-|-------------------|-----------------------------------------------------------------------------------|-----------------------|
-| `AI_DEVICE`       | AI's models can either run on CPU (`cpu`) or GPU (`cuda`).                        | `cpu`                 |
-| `AI_NUM_PROC`     | Number of processors used by AI.                                                  | 4                     |
-| `AI_CV_ENABLE`    | When computer vision detection is enable.                                         | false                 |
-| `AI_CV_MODEL`     | Directory where model of computer vision is saved.                                | `yolo11n_drone.pt`    |
-| `AI_CV_MODEL_TYPE`| The computer vision model used                                                    | `yolo`                |
+| Name                  | Description                                                                       | Default                   |
+|-----------------------|-----------------------------------------------------------------------------------|---------------------------|
+| `AI_DEVICE`           | AI's models can either run on CPU (`cpu`) or GPU (`cuda`).                        | `cpu`                     |
+| `AI_NUM_PROC`         | Number of processors used by AI.                                                  | 4                         |
+| `AI_CV_ENABLE`        | When computer vision detection is enable.                                         | false                     |
+| `AI_CV_MODEL`         | Directory where model of computer vision is saved.                                | `yolo11n_drone.pt`        |
+| `AI_CV_MODEL_TYPE`    | The computer vision model used                                                    | `yolo`                    |
+| `AI_MODELS_FOLDER`    | Directory where AI models are saved.                                              | `/assets/audio_models/`   |
+
+### IPC
+
+| Name                                  | Description                                                                 | Default                    |
+|---------------------------------------|-----------------------------------------------------------------------------|----------------------------|
+| `IPC_PROXY_XSUB_PORT`                 | ZMQ proxy XSUB socket port                                                  | `5556`                     |
+| `IPC_PROXY_XPUB_PORT`                 | ZMQ proxy XPUB socket port                                                  | `5557`                     |
+| `IPC_ACOUSTIC_ANGLE_TOPIC`            | IPC topic for angles detected by the acoustic module                        | `"acoustic_angle"`         |
+| `IPC_ACOUSTIC_DETECTION_TOPIC`        | IPC topic for detections from the acoustic module                           | `"acoustic_detection"`     |
+| `IPC_DECISION_ANGLE_TOPIC`            | IPC topic for angles output by the decision module                          | `"decision_angle"`         |
+| `IPC_DECISION_DETECTION_TOPIC`        | IPC topic for detections output by the decision module                      | `"decision_detection"`     |
+| `IPC_VISION_DECISION_TOPIC`           | IPC topic for decisions output by the vision module                         | `"vision_decision"`        |
+| `IPC_VISION_DETECTION_TOPIC`          | IPC topic for detections output by the vision module                        | `"vision_detection"`       |
+| `IPC_VISION_ANGLE_TOPIC`              | IPC topic for angles output by the vision module                            | `"vision_angle"`           |
+| `IPC_VIDEO_STREAMING_ANNOTATED_PORT`  | Port for the annotated video stream                                         | `5560`                     |
+| `IPC_SYSTEM_STATUS_TOPIC`             | IPC topic for the overall system status                                     | `"system_status"`          |
